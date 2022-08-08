@@ -40,11 +40,21 @@ class product{
 //read the data send over post method
         if(isset($_POST["name"]) ) {
             $name = $_POST["name"];
-//add a new comment using the model
-            $product = product_model::add($name);
+            $sku = $_POST["sku"];
+            $type = $_POST["type"];
+            $weight = $_POST["weight"];
+            $height = $_POST["height"];
+            $price = $_POST["price"];
+            $size = $_POST["size"];
+            $length = $_POST["length"];
+            $product = product_model::add($name, $sku, $type, $weight, $height, $price, $size, $length);
 //return the conformation of succesful insertion
             // require_once("view/product/add.php");
         }
+        
+        return $product;
+
     }
+    
 }
 ?>

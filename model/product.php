@@ -71,10 +71,15 @@ class product_type_model
     public $id;
     public $name;
 
+    public function __construct($id, $name) {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
     // get all product_type from the database product_type table
     public static function all()
     {
-       // return all product_type from the database product_type table
+       // get all product_type from the database product_type table
         $list = [];
         $db = Db::getInstance();
         if($result = mysqli_query($db,"SELECT * FROM product_type")) {
@@ -82,7 +87,9 @@ class product_type_model
                 $list[] = new product_type_model($row['id'],$row['name']);
             }
         }
-       
+        return $list;
+    
+       echo json_encode($list);
         return $list;
     }
 }
