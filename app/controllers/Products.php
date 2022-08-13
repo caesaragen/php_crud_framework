@@ -65,7 +65,6 @@ class Products extends Controller
 
             $this->view('products/addproduct', $data);
         }
-
     }
 
     /**
@@ -88,32 +87,49 @@ class Products extends Controller
     }
 
     /**
+     * Delete multiple products
+     */
+    public function deleteMultiple()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->productModel->deleteMultipleProducts($_POST['products']);
+            redirect('pages/index');
+        } else {
+            $products = $this->productModel->getProducts();
+            $data = [
+                'products' => $products
+            ];
+            $this->view('products/deleteMultiple', $data);
+        }
+    }
+
+    /**
      * Validate Products
      */
 
     public function validateProduct($data)
     {
         // var_dump($data);
-        if(empty($data['name'])) {
+        if (empty($data['name'])) {
             $data['name_err'] = 'Please enter name';
         }
 
-        if(empty($data['sku'])) {
+        if (empty($data['sku'])) {
             $data['sku_err'] = 'Please enter sku';
         }
 
-        if(empty($data['price'])) {
+        if (empty($data['price'])) {
             $data['price_err'] = 'Please enter price';
         } elseif (!is_numeric($data['price'])) {
             $data['price_err'] = 'Please enter a valid price';
         }
 
-        if(empty($data['type'])) {
+        if (empty($data['type'])) {
             $data['type_err'] = 'Please enter type';
         }
 
-        if(empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err'])) {
-            if($this->productModel->addProduct($data)) {
+        if (empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err'])) {
+            if ($this->productModel->addProduct($data)) {
                 flash('product_message', 'Product Added');
                 redirect('products/index');
             } else {
@@ -140,7 +156,7 @@ class Products extends Controller
             'sku_err' => '',
             'price_err' => '',
             'type_err' => ''
-            
+
         ];
 
         return $data;

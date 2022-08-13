@@ -2,24 +2,27 @@
 <!-- <h1> <?php echo $data['title']; ?></h1>
 <p><?php echo $data['description']; ?></p> -->
 <p>Version: <strong><?php echo APP_VERSION; ?></strong></p>
-<header>
-    <div class="jumbotron">
+<form action="<?php echo URLROOT; ?>/products/addproduct" method="post">
+
+    <header>
+        <div class="jumbotron">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
                     <h1 class="display-4">Product Add</h1>
                     <div class="button-group">
-                        <button class="btn btn-success" onclick="submitForm()">Add Product</button>
+                        <!-- <input type="submit" value="Add" class="btn btn-success btn-block"> -->
+                        <button type="submit" class="btn btn-success">Add Product</button>
                         <button class="btn btn-danger" id="delete-product-btn">Cancel</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
+    <div class="container">
+        <hr class="my-4">
     </div>
-</header>
-<div class="container">
-    <hr class="my-4">
-</div>
-<div class="container">
-    <form action="<?php echo URLROOT; ?>/products/add" method="post">
+    <div class="container">
+        <!-- <form action="<?php echo URLROOT; ?>/products/addproduct" method="post"> -->
         <div class="row mb-3">
             <label for="sku" class="col-sm-2 col-form-label">SKU</label>
             <div class="col-sm-10">
@@ -88,9 +91,9 @@
             </div>
         </div>
         <div class="col">
-            <input type="submit" value="Add" class="btn btn-success btn-block">
+            <!-- <input type="submit" value="Add" class="btn btn-success btn-block"> -->
         </div>
-    </form>
+</form>
 
 </div>
 <script>
@@ -98,7 +101,7 @@
 
         $("#product_form").submit(function(e) {
 
-            var url = "<?php echo URLROOT; ?>/products/add"; // the script where you handle the form input.
+            var url = "<?php echo URLROOT; ?>/products/addproduct"; // the script where you handle the form input.
             console.log(url);
             data = {
                 sku: $("#sku").val(),

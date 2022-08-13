@@ -20,7 +20,7 @@
         <?php foreach ($data['products'] as $product) : ?>
             <div class="col-md-4 p-2">
                 <div class="card">
-                    <input class="form-check-input m-2" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input m-2 delete-checkbox" name="delete" type="checkbox" value="<?php echo $product->id; ?>" id="delete-checkbox-<?php echo $product->id; ?>">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <h5 class="card-title"><?php echo $product->sku; ?></h5>
                         <p class="card-text"><?php echo $product->name; ?></p>
@@ -38,6 +38,35 @@
         <?php endforeach; ?>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#delete-product-btn').on('click', function() {
+            var checkboxes = $('.delete-checkbox');
+            var checked = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checked.push(checkboxes[i].value);
+                }
+            }
+            console.log(checked);
+            if (checked.length > 0) {
+                $.ajax({
+                    url: '<?php echo URLROOT; ?>/products/deleteMultiple',
+                    type: 'POST',
+                    data: {
+                        'products': checked
+                    },
+                    success: function(response) {
+                        window.location.href = '<?php echo URLROOT; ?>';
+                        console.log(response);
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
 
 
 
