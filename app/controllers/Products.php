@@ -22,7 +22,7 @@ class Products extends Controller
             'title' => 'Product List',
         ];
 
-        $this->view('pages/index', $data);
+        $this->view('index', $data);
     }
 
     /**
@@ -41,19 +41,19 @@ class Products extends Controller
 
             $data['sku'] = trim($_POST['sku']);
 
-            $data['price'] = trim($_POST['price']);
+            $data['price'] = trim($_POST['price']) ? trim($_POST['price']) : 0;
 
             $data['type'] = trim($_POST['type']);
 
-            $data['length'] = trim($_POST['length']);
+            $data['length'] = trim($_POST['length']) ? trim($_POST['length']) : 0;
 
-            $data['width'] = trim($_POST['width']);
+            $data['width'] = trim($_POST['width']) ? trim($_POST['width']) : 0;
 
-            $data['height'] = trim($_POST['height']);
+            $data['height'] = trim($_POST['height']) ? trim($_POST['height']) : 0;
 
-            $data['weight'] = trim($_POST['weight']);
+            $data['weight'] = trim($_POST['weight']) ? trim($_POST['weight']) : 0;
 
-            $data['size'] = trim($_POST['size']);
+            $data['size'] = trim($_POST['size']) ? trim($_POST['size']) : 0;
 
             $this->validateProduct($data);
         } else {
@@ -61,7 +61,7 @@ class Products extends Controller
 
             // var_dump($data);
 
-            $this->view('products/addproduct', $data, $products);
+            $this->view('addproduct', $data, $products);
         }
 
     }
@@ -137,15 +137,15 @@ class Products extends Controller
         }
 
         if(empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err']) ) {
-            var_dump($data);
+            // var_dump($data);
             if($this->productModel->addProduct($data)) {
                 flash('product_message', 'Product Added');
-                redirect('products/index');
+                redirect('index');
             } else {
                 die('Something went wrong');
             }
         } else {
-            $this->view('products/addproduct', $data);
+            $this->view('addproduct', $data);
         }
     }
 

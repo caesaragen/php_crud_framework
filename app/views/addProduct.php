@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
-<form action=" <?php echo URLROOT; ?>/products/addproduct" ; method="post">
+<form action=" <?php echo URLROOT; ?>/addproduct" ; method="post">
 
     <header>
         <div class="jumbotron">
@@ -8,7 +8,7 @@
                     <h1 class="display-4">Product Add</h1>
                     <div class="button-group">
                         <button class="btn btn-success" type="submit">Save</button>
-                        <a class="btn btn-danger" href="<?php echo URLROOT ?>/pages/index">Cancel</a>
+                        <a class="btn btn-danger" href="<?php echo URLROOT ?>/index">Cancel</a>
                     </div>
                 </div>
             </div>
@@ -256,7 +256,7 @@
     });
 
     const submitForm = () => {
-        var url = "<?php echo URLROOT; ?>/products/addproduct";
+        var url = "<?php echo URLROOT; ?>/addproduct";
         console.log(url);
         data = {
             sku: $("#sku").val(),

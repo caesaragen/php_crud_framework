@@ -7,13 +7,14 @@
  */
 class Core
 {
-    protected $currentController = 'Pages';
+    protected $currentController = 'Products';
     protected $currentMethod = 'index';
     protected $params = [];
 
     public function __construct()
     {
         $url = $this->getUrl();
+        // var_dump($url);
 
         if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
             $this->currentController = ucwords($url[0]);
@@ -24,10 +25,10 @@ class Core
 
         $this->currentController = new $this->currentController;
 
-        if(isset($url[1])){
-            if(method_exists($this->currentController, $url[1])){
-                $this->currentMethod = $url[1];
-                unset($url[1]);
+        if(isset($url[0])){
+            if(method_exists($this->currentController, $url[0])){
+                $this->currentMethod = $url[0];
+                unset($url[0]);
             }
         }
 
@@ -39,7 +40,7 @@ class Core
 
     public function getUrl()
     {
-        // var_dump($_GET['q']);
+        // var_dump($_GET);
 
         if (isset($_GET['q'])) {
             $url = rtrim($_GET['q'], '/');

@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h1> <?php echo $data['title']; ?></h1>
                 <div class="button-group">
-                    <a class="btn btn-success" href="<?php echo URLROOT ?>/products/addproduct">ADD</a>
+                    <a class="btn btn-success" href="<?php echo URLROOT ?>/addproduct">ADD</a>
                     <button class="btn btn-danger" id="delete-product-btn">MASS DELETE</button>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             console.log(checked);
             if (checked.length > 0) {
                 $.ajax({
-                    url: '<?php echo URLROOT; ?>/products/deleteMultiple',
+                    url: '<?php echo URLROOT; ?>/deleteMultiple',
                     type: 'POST',
                     data: {
                         'products': checked
