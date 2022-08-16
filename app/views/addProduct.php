@@ -153,6 +153,55 @@
         var type = $("#type").val();
         var dvd = $("#dvd").val();
 
+        
+        $("#height").blur(function() {
+            if ($("#height").val() == 0) {
+                $("#height_err").html("Height cannot be 0 *");
+            } else {
+                $("#height_err").html("");
+            }
+        })
+        
+        $("#width").blur(function() {
+            if ($("#width").val() == 0) {
+                $("#width_err").html("Width cannot be 0 *");
+            } else {
+                $("#width_err").html("");
+            }
+        })
+        
+        $("#length").blur(function() {
+            if ($("#length").val() == 0) {
+                $("#length_err").html("Length cannot be 0 *");
+            } else {
+                $("#length_err").html("");
+            }
+        })
+        
+        $("#weight").blur(function() {
+            if ($("#weight").val() == 0) {
+                $("#weight_err").html("Weight cannot be 0 *");
+            } else {
+                $("#weight_err").html("");
+            }
+        })
+        
+        $("#size").blur(function() {
+            if ($("#size").val() == 0) {
+                $("#size_err").html("Size cannot be 0 *");
+            } else {
+                $("#size_err").html("");
+            }
+        })
+        
+        $("#price").blur(function() {
+            if ($("#price").val() == 0) {
+                $("#price_err").html("Price cannot be 0 *");
+            } else {
+                $("#price_err").html("");
+            }
+        })
+
         $("#height").keyup(function() {
             Height = $("#height").val();
             if (Height == "") {

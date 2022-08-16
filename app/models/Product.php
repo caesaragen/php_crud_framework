@@ -19,6 +19,10 @@ class Product
         
         return $products;
     }
+
+    /**
+     * Add product 
+     */
     
     public function addProduct($data)
     {

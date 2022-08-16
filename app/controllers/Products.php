@@ -30,7 +30,7 @@ class Products extends Controller
      */
     public function addProduct()
     {
-        
+
         $products = $this->productModel->getProducts();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -63,7 +63,6 @@ class Products extends Controller
 
             $this->view('addproduct', $data, $products);
         }
-
     }
 
     /**
@@ -110,35 +109,35 @@ class Products extends Controller
     {
         $products = $this->productModel->getProducts();
 
-        if(empty($data['name'])) {
+        if (empty($data['name'])) {
             $data['name_err'] = 'Please enter name';
         }
 
-        if(empty($data['sku'])) {
+        if (empty($data['sku'])) {
             $data['sku_err'] = 'Please enter sku';
         }
 
         //if sku already exists and is not the current product
-        foreach($products as $product) {
-            if($product->sku == $data['sku']) {
+        foreach ($products as $product) {
+            if ($product->sku == $data['sku']) {
                 $data['sku_err'] = 'SKU already exists';
             }
         }
-        
 
-        if(empty($data['price'])) {
+
+        if (empty($data['price'])) {
             $data['price_err'] = 'Please enter price';
         } elseif (!is_numeric($data['price'])) {
             $data['price_err'] = 'Please enter a valid price';
         }
 
-        if(empty($data['type'])) {
+        if (empty($data['type'])) {
             $data['type_err'] = 'Please enter type';
         }
 
-        if(empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err']) ) {
+        if (empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err'])) {
             // var_dump($data);
-            if($this->productModel->addProduct($data)) {
+            if ($this->productModel->addProduct($data)) {
                 flash('product_message', 'Product Added');
                 redirect('index');
             } else {
@@ -165,10 +164,9 @@ class Products extends Controller
             'sku_err' => '',
             'price_err' => '',
             'type_err' => ''
-            
+
         ];
 
         return $data;
     }
-
 }
