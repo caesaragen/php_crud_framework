@@ -153,52 +153,64 @@
         var type = $("#type").val();
         var dvd = $("#dvd").val();
 
-        
+
         $("#height").blur(function() {
             if ($("#height").val() == 0) {
+                $("#height").addClass("is-invalid");
                 $("#height_err").html("Height cannot be 0 *");
             } else {
                 $("#height_err").html("");
+                $("#height").removeClass("is-invalid");
             }
         })
-        
+
         $("#width").blur(function() {
             if ($("#width").val() == 0) {
+                $("#width").addClass("is-invalid");
                 $("#width_err").html("Width cannot be 0 *");
             } else {
                 $("#width_err").html("");
+                $("#width").removeClass("is-invalid");
             }
         })
-        
+
         $("#length").blur(function() {
             if ($("#length").val() == 0) {
+                $("#length").addClass("is-invalid");
                 $("#length_err").html("Length cannot be 0 *");
             } else {
                 $("#length_err").html("");
+                $("#length").removeClass("is-invalid");
             }
         })
-        
+
         $("#weight").blur(function() {
             if ($("#weight").val() == 0) {
+                $("#weight").addClass("is-invalid");
                 $("#weight_err").html("Weight cannot be 0 *");
             } else {
                 $("#weight_err").html("");
+                $("#weight").removeClass("is-invalid");
             }
         })
-        
+
         $("#size").blur(function() {
             if ($("#size").val() == 0) {
+                $("#size").addClass("is-invalid");
                 $("#size_err").html("Size cannot be 0 *");
             } else {
                 $("#size_err").html("");
+                $("#size").removeClass("is-invalid");
             }
         })
-        
+
         $("#price").blur(function() {
             if ($("#price").val() == 0) {
+                $("#price").addClass("is-invalid");
                 $("#price_err").html("Price cannot be 0 *");
             } else {
                 $("#price_err").html("");
+                $("#price").removeClass("is-invalid");
             }
         })
 
