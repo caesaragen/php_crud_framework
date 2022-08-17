@@ -129,10 +129,61 @@ class Products extends Controller
             $data['price_err'] = 'Please enter price';
         } elseif (!is_numeric($data['price'])) {
             $data['price_err'] = 'Please enter a valid price';
+        } elseif ($data['price'] <= 0) {
+            $data['price_err'] = 'Please enter a positive price';
         }
 
         if (empty($data['type'])) {
             $data['type_err'] = 'Please enter type';
+        }
+
+        // only validate length height and width if type = 3
+        if ($data['type'] == 3) {
+            if (empty($data['length'])) {
+                $data['length_err'] = 'Please enter length';
+            } elseif (!is_numeric($data['length'])) {
+                $data['length_err'] = 'Please enter a valid length';
+            } elseif ($data['length'] <= 0) {
+                $data['length_err'] = 'Please enter a positive length';
+            }
+            if (empty($data['width'])) {
+                $data['width_err'] = 'Please enter width';
+            } elseif (!is_numeric($data['width'])) {
+                $data['width_err'] = 'Please enter a valid width';
+            } elseif ($data['width'] <= 0) {
+                $data['width_err'] = 'Please enter a positive width';
+            }
+            if (empty($data['height'])) {
+                $data['height_err'] = 'Please enter height';
+            } elseif (!is_numeric($data['height'])) {
+                $data['height_err'] = 'Please enter a valid height';
+            } elseif ($data['height'] <= 0) {
+                $data['height_err'] = 'Please enter a positive height';
+            }
+        }
+        // if(isset($data['size'])){
+        //     if(!is_numeric($data['size'])) {
+        //         $data['size_err'] = 'Please enter a valid size';
+        //     } elseif ($data['size'] <= 0) {
+        //         $data['size_err'] = 'Please enter a positive size';
+        //     }
+        // }
+        // if(!empty($data['length']) && !is_numeric($data['length'])) {
+        //     $data['length_err'] = 'Please enter a valid length';
+        // } elseif ($data['length'] <= 0) {
+        //     $data['length_err'] = 'Please enter a positive length';
+        // }
+
+        // if(!empty($data['width']) && !is_numeric($data['width'])) {
+        //     $data['width_err'] = 'Please enter a valid width';
+        // } elseif ($data['width'] <= 0) {
+        //     $data['width_err'] = 'Please enter a positive width';
+        // }
+
+        if (!empty($data['height']) && !is_numeric($data['height'])) {
+            $data['height_err'] = 'Please enter a valid height';
+        } elseif ($data['height'] <= 0 || $data['height'] <= '0') {
+            $data['height_err'] = 'Please enter a positive height';
         }
 
         if (empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err'])) {
