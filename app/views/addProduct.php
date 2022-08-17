@@ -426,6 +426,7 @@
 
     $(document).ready(function() {
         $('#productType').change(function() {
+            $("#input_err").html("");
             var type = $(this).val();
             if (type == 1) {
                 $('.dvd-input').removeClass('d-none');
