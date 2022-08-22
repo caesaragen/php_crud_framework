@@ -1,4 +1,29 @@
-$(document).ready(function () {     
+$(document).ready(function () { 
+     let url = window.location.href;
+    $('#delete-product-btn').on('click', function () {
+                console.log(url);
+            var checkboxes = $('.delete-checkbox');
+            var checked = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checked.push(checkboxes[i].value);
+                }
+            }
+            console.log(checked);
+            if (checked.length > 0) {
+                $.ajax({
+                    url: url+'/deleteMultiple',
+                    type: 'POST',
+                    data: {
+                        'products': checked
+                    },
+                    success: function(response) {
+                        window.location.href = url;
+                        console.log(response);
+                    }
+                });
+            }
+        });
     $('#productType').change(function() {
         $("#input_err").html("");
         $('#input' + $(this).val()).toggleClass('d-none');

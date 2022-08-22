@@ -40,37 +40,5 @@
         <?php endforeach; ?>
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $('#delete-product-btn').on('click', function() {
-            var checkboxes = $('.delete-checkbox');
-            var checked = [];
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    checked.push(checkboxes[i].value);
-                }
-            }
-            if (checked.length > 0) {
-                $.ajax({
-                    url: '<?php echo URLROOT; ?>/deleteMultiple',
-                    type: 'POST',
-                    data: {
-                        'products': checked
-                    },
-                    success: function(response) {
-                        window.location.href = '<?php echo URLROOT; ?>';
-                    }
-                });
-            }
-        });
-    });
-</script>
-
-
-
-
-
-
-
 
 <?php require APPROOT . '/views/includes/footer.php'; ?>
