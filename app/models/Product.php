@@ -80,23 +80,4 @@ class Product
         }
     }
 
-    /**
-     * Check if product exists using sku
-     */
-    public function productExists($sku)
-    {
-        $this->db->query(
-            'SELECT * FROM products WHERE sku = :sku'
-        );
-
-        $this->db->bind(':sku', $sku);
-
-        // $row = $this->db->single();
-
-        if ($this->db->rowCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

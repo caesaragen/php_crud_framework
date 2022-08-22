@@ -59,7 +59,6 @@ class Products extends Controller
         } else {
             $data = Products::productData();
 
-            // var_dump($data);
 
             $this->view('addproduct', $data, $products);
         }
