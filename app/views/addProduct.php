@@ -41,7 +41,6 @@
             <div class="col-sm-10">
                 <input type="text" name="price" id="price" class="form-control <?php echo (!empty($data['price_err'])) ? 'is-invalid' : ''; ?>">
                 <?php echo (!empty($data['price_err'])) ? '<span class="text-danger">' . $data['price_err'] . '</span>' : ''; ?>
-                <!-- <i class="text-success">Please, provide Price *</i> -->
                 <span class="text-danger" id="price_err"></span>
             </div>
         </div>
@@ -64,7 +63,6 @@
                 <div class="col-sm-10">
                     <input type="text" name="size" id="size" class="form-control <?php echo (!empty($data['size_err'])) ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($data['size_err'])) ? '<span class="text-danger">' . $data['size_err'] . '</span>' : ''; ?>
-                    <!-- <i class="text-success">Please, provide Size *</i> -->
                     <span class="text-danger" id="size_err"></span>
                 </div>
             </div>
@@ -75,7 +73,6 @@
                 <div class="col-sm-10">
                     <input type="text" name="height" id="height" class="form-control <?php echo (!empty($data['height_err'])) ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($data['height_err'])) ? '<span class="text-danger">' . $data['height_err'] . '</span>' : ''; ?>
-                    <!-- <i class="text-success">Please, provide Height *</i> -->
                     <span class="text-danger" id="height_err"></span>
                 </div>
             </div>
@@ -84,7 +81,6 @@
                 <div class="col-sm-10">
                     <input type="text" name="width" id="width" class="form-control <?php echo (!empty($data['width_err'])) ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($data['width_err'])) ? '<span class="text-danger">' . $data['width_err'] . '</span>' : ''; ?>
-                    <!-- <i class="text-success">Please, provide Width *</i> -->
                     <span class="text-danger" id="width_err"></span>
                 </div>
             </div>
@@ -93,7 +89,6 @@
                 <div class="col-sm-10">
                     <input type="text" name="length" id="length" class="form-control <?php echo (!empty($data['length_err'])) ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($data['length_err'])) ? '<span class="text-danger">' . $data['length_err'] . '</span>' : ''; ?>
-                    <!-- <i class="text-success">Please, provide Length *</i> -->
                     <span class="text-danger" id="length_err"></span>
                 </div>
             </div>
@@ -104,7 +99,6 @@
                 <div class="col-sm-10">
                     <input type="text" name="weight" id="weight" class="form-control <?php echo (!empty($data['weight_err'])) ? 'is-invalid' : ''; ?>">
                     <?php echo (!empty($data['weight_err'])) ? '<span class="text-danger">' . $data['weight_err'] . '</span>' : ''; ?>
-                    <!-- <i class="text-success">Please, provide weight *</i> -->
                     <span class="text-danger" id="weight_err"></span>
                 </div>
             </div>

@@ -1,7 +1,8 @@
 $(document).ready(function () { 
+
+    // Delete Products
      let url = window.location.href;
     $('#delete-product-btn').on('click', function () {
-                console.log(url);
             var checkboxes = $('.delete-checkbox');
             var checked = [];
             for (var i = 0; i < checkboxes.length; i++) {
@@ -9,7 +10,6 @@ $(document).ready(function () {
                     checked.push(checkboxes[i].value);
                 }
             }
-            console.log(checked);
             if (checked.length > 0) {
                 $.ajax({
                     url: url+'/deleteMultiple',
@@ -19,11 +19,12 @@ $(document).ready(function () {
                     },
                     success: function(response) {
                         window.location.href = url;
-                        console.log(response);
                     }
                 });
             }
         });
+
+    // Toggle Product Types
     $('#productType').change(function() {
         $("#input_err").html("");
         $('#input' + $(this).val()).toggleClass('d-none');
@@ -31,7 +32,7 @@ $(document).ready(function () {
         $('.input').not('#input' + $(this).val()).val('');
     });
 
- let size = document.querySelector('#size');
+        let size = document.querySelector('#size');
         let weight = document.querySelector('#weight');
         let height = document.querySelector('#height');
         let length = document.querySelector('#length');
@@ -40,7 +41,7 @@ $(document).ready(function () {
         let form = document.querySelector('#product_form');
         let sku = document.querySelector('#sku');
         let name = document.querySelector('#name');
-let price = document.querySelector('#price');
+        let price = document.querySelector('#price');
         
 form.addEventListener('submit', (e) => {
     e.preventDefault();
