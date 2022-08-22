@@ -7,7 +7,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h1 class="display-4">Product Add</h1>
                     <div class="button-group">
-                        <button class="btn btn-success" onclick="validateForm()">Save</button>
+                        <button class="btn btn-success">Save</button>
                         <a class="btn btn-danger" href="<?php echo URLROOT ?>/index">Cancel</a>
                     </div>
                 </div>
@@ -55,6 +55,7 @@
                     <option value="3">Furniture</option>
                 </select>
                 <?php echo (!empty($data['type_err'])) ? '<span class="text-danger">' . $data['type_err'] . '</span>' : ''; ?>
+                <span class="text-danger" id="type_err"></span>
             </div>
         </div>
         <div class="input d-none" id="input1">
