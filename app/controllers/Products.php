@@ -124,7 +124,6 @@ class Products extends Controller
             }
         }
 
-
         if (empty($data['price'])) {
             $data['price_err'] = 'Please enter price';
         } elseif (!is_numeric($data['price'])) {
@@ -137,32 +136,6 @@ class Products extends Controller
             $data['type_err'] = 'Please enter type';
         }
 
-        // only validate length height and width if type = 3
-        if ($data['type'] == 3) {
-            if (empty($data['length'])) {
-                $data['length_err'] = 'Please enter length';
-            } elseif (!is_numeric($data['length'])) {
-                $data['length_err'] = 'Please enter a valid length';
-            } elseif ($data['length'] <= 0) {
-                $data['length_err'] = 'Please enter a positive length';
-            }
-            if (empty($data['width'])) {
-                $data['width_err'] = 'Please enter width';
-            } elseif (!is_numeric($data['width'])) {
-                $data['width_err'] = 'Please enter a valid width';
-            } elseif ($data['width'] <= 0) {
-                $data['width_err'] = 'Please enter a positive width';
-            }
-            if (empty($data['height'])) {
-                $data['height_err'] = 'Please enter height';
-            } elseif (!is_numeric($data['height'])) {
-                $data['height_err'] = 'Please enter a valid height';
-            } elseif ($data['height'] <= 0) {
-                $data['height_err'] = 'Please enter a positive height';
-            }
-        }
-
-
         if (!empty($data['height']) && !is_numeric($data['height'])) {
             $data['height_err'] = 'Please enter a valid height';
         } elseif ($data['height'] <= 0 || $data['height'] <= '0') {
@@ -170,7 +143,6 @@ class Products extends Controller
         }
 
         if (empty($data['name_err']) && empty($data['sku_err']) && empty($data['price_err'])) {
-            // var_dump($data);
             if ($this->productModel->addProduct($data)) {
                 flash('product_message', 'Product Added');
                 redirect('');
