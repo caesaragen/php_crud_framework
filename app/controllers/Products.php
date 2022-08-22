@@ -161,24 +161,7 @@ class Products extends Controller
                 $data['height_err'] = 'Please enter a positive height';
             }
         }
-        // if(isset($data['size'])){
-        //     if(!is_numeric($data['size'])) {
-        //         $data['size_err'] = 'Please enter a valid size';
-        //     } elseif ($data['size'] <= 0) {
-        //         $data['size_err'] = 'Please enter a positive size';
-        //     }
-        // }
-        // if(!empty($data['length']) && !is_numeric($data['length'])) {
-        //     $data['length_err'] = 'Please enter a valid length';
-        // } elseif ($data['length'] <= 0) {
-        //     $data['length_err'] = 'Please enter a positive length';
-        // }
 
-        // if(!empty($data['width']) && !is_numeric($data['width'])) {
-        //     $data['width_err'] = 'Please enter a valid width';
-        // } elseif ($data['width'] <= 0) {
-        //     $data['width_err'] = 'Please enter a positive width';
-        // }
 
         if (!empty($data['height']) && !is_numeric($data['height'])) {
             $data['height_err'] = 'Please enter a valid height';
@@ -190,7 +173,7 @@ class Products extends Controller
             // var_dump($data);
             if ($this->productModel->addProduct($data)) {
                 flash('product_message', 'Product Added');
-                redirect('index');
+                redirect('');
             } else {
                 die('Something went wrong');
             }

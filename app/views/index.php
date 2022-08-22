@@ -50,7 +50,6 @@
                     checked.push(checkboxes[i].value);
                 }
             }
-            console.log(checked);
             if (checked.length > 0) {
                 $.ajax({
                     url: '<?php echo URLROOT; ?>/deleteMultiple',
@@ -60,7 +59,6 @@
                     },
                     success: function(response) {
                         window.location.href = '<?php echo URLROOT; ?>';
-                        console.log(response);
                     }
                 });
             }
