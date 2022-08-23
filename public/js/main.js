@@ -27,7 +27,7 @@ $(document).ready(function () {
     // Toggle Product Types
     $('#productType').change(function() {
         $("#input_err").html("");
-        $('#input' + $(this).val()).toggleClass('d-none');
+        $('#input' + $(this).val()).removeClass('d-none');
         $('.input').not('#input' + $(this).val()).addClass('d-none');
         $('.input').not('#input' + $(this).val()).val('');
     });
