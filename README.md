@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ### Getting Started
-- Clone the repository ```$https://github.com/caesaragen/scandiweb_test```
+- Clone the repository ```$https://github.com/caesaragen/php_crud_framework```
 - Navigate to the cloned repo
 
 #### Prerequisites
